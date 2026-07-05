@@ -1,16 +1,60 @@
 function createDivs(amount){
-    for (amount; amount > 0; amount--){
+    for (let count = amount; count > 0; count--){
         const div = document.createElement("div");
         divContainer.appendChild(div);
         div.classList.add("box");
+        let widthCalc = (320 / (Math.sqrt(amount))) + "px";
+        div.style.width = widthCalc;
+        div.style.height = widthCalc;
+        div.addEventListener("mouseover", () => {
+            div.style.backgroundColor = 'hotpink';
+        });
 
     }
 };
 
+function divReset(){
+    const deleteDivs = document.querySelectorAll(".box");
+    deleteDivs.forEach(item => {
+        item.remove();
+    });
+    let newChoice = parseInt(prompt("How many squares do you want per side? (max 100)"),10)
+    while (newChoice < 1 || newChoice > 100 || Number.isInteger(newChoice) == false) {
+        newChoice = parseInt(prompt("Please enter a valid number (1-100)"),10)
+    };
+    return newChoice;
+}
+
+const headerContainer = document.createElement("div");
 const divContainer = document.createElement("div");
+const toggleContainer = document.createElement("div");
+const resetButton = document.createElement("button");
+const chaosToggle = document.createElement("button");
+const layerToggle = document.createElement("button");
 divContainer.setAttribute("id", "divContainer");
+headerContainer.setAttribute("id", "headerContainer");
+
+document.body.appendChild(headerContainer)
 document.body.appendChild(divContainer);
+headerContainer.appendChild(toggleContainer);
+headerContainer.appendChild(resetButton);
+toggleContainer.appendChild(chaosToggle);
+toggleContainer.appendChild(layerToggle);
+
+
+resetButton.textContent = "RESET?";
+chaosToggle.textContent = "CHAOS?";
+layerToggle.textContent = "LAYERS?";
 
 
 
-createDivs(16*16);
+
+
+function etchSketch() {
+    createDivs(16*16);
+    resetButton.addEventListener("click", () => {
+            createDivs(Math.pow(divReset(),2));
+        })
+}
+
+etchSketch()

@@ -1,8 +1,10 @@
 html{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh; 
+    background-color: black;
 
 }
 
@@ -11,11 +13,29 @@ html{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 160px;
+    width: 320px;
+    height: 320px;
+    border: solid 1px black;
+    background-color: white;
+
 }
 
 .box{
-    width: 8px;
-    height:8px;
-    border: solid 1px red;
+    width: 18px;
+    height:18px;
+}
+
+#headerContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+button{
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    color:white;
+    background-color: black;
+    border: none;
 }
