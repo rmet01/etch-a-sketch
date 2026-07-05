@@ -1,0 +1,21 @@
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+
+}
+
+#divContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 160px;
+}
+
+.box{
+    width: 8px;
+    height:8px;
+    border: solid 1px red;
+}
