@@ -3,6 +3,7 @@ function createDivs(amount){
         const div = document.createElement("div");
         divContainer.appendChild(div);
         div.classList.add("box");
+        let screen = 0.0;
         let widthCalc = (320 / (Math.sqrt(amount))) + "px";
         div.style.width = widthCalc;
         div.style.height = widthCalc;
@@ -16,7 +17,10 @@ function createDivs(amount){
         });
         div.addEventListener("mouseover", () => {
             if (layers) { 
-                div.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+                if (screen < 1.0) {
+                screen = screen + 0.1;
+                div.style.backgroundImage = `linear-gradient(rgba(0,0,0,${screen}), rgba(0,0,0,${screen}))`;
+            };
             }        
         });
 
@@ -44,7 +48,7 @@ const layerToggle = document.createElement("button");
 divContainer.setAttribute("id", "divContainer");
 headerContainer.setAttribute("id", "headerContainer");
 
-document.body.appendChild(headerContainer)
+document.body.appendChild(headerContainer);
 document.body.appendChild(divContainer);
 headerContainer.appendChild(toggleContainer);
 headerContainer.appendChild(resetButton);
@@ -74,6 +78,15 @@ function etchSketch() {
             } 
         else {
             chaosToggle.style.color = "white";
+            }
+    })
+    layerToggle.addEventListener("click", () =>{
+        layers = !layers;
+        if (layers) {
+            layerToggle.style.color = "hotpink";
+            } 
+        else {
+            layerToggle.style.color = "white";
             }
     })
 }

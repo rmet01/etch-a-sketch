@@ -8,7 +8,7 @@ html{
 
 }
 
-#divContainer{
+#divContainer, #screenContainer{
     display:flex;
     align-items: center;
     justify-content: center;
