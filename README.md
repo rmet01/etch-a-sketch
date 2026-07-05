@@ -1,1 +1,1 @@
-# etch-a-sketch
+Etch-a-sketch -style drawing app with canvas sharpeness selector, a color randomizer and an opacity layer feature

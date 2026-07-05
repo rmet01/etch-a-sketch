@@ -63,8 +63,6 @@ layerToggle.textContent = "LAYERS?";
 let chaos = false;
 let layers = false;
 
-
-
 function etchSketch() {
     createDivs(16*16);
     resetButton.addEventListener("click", () => {
