@@ -58,7 +58,7 @@ toggleContainer.appendChild(layerToggle);
 
 resetButton.textContent = "RESET?";
 chaosToggle.textContent = "CHAOS?";
-layerToggle.textContent = "LAYERS?";
+layerToggle.textContent = "DARKEN?";
 
 let chaos = false;
 let layers = false;
@@ -68,7 +68,6 @@ function etchSketch() {
     resetButton.addEventListener("click", () => {
             createDivs(Math.pow(divReset(),2));
         })
-    let toggleDivs = document.querySelectorAll(".box");
     chaosToggle.addEventListener("click", () =>{
         chaos = !chaos;
         if (chaos) {
