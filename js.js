@@ -7,7 +7,17 @@ function createDivs(amount){
         div.style.width = widthCalc;
         div.style.height = widthCalc;
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = 'hotpink';
+            if (chaos) { 
+                div.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            } else {
+                div.style.backgroundColor = 'hotpink';
+            }
+        
+        });
+        div.addEventListener("mouseover", () => {
+            if (layers) { 
+                div.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            }        
         });
 
     }
@@ -46,7 +56,8 @@ resetButton.textContent = "RESET?";
 chaosToggle.textContent = "CHAOS?";
 layerToggle.textContent = "LAYERS?";
 
-
+let chaos = false;
+let layers = false;
 
 
 
@@ -55,6 +66,16 @@ function etchSketch() {
     resetButton.addEventListener("click", () => {
             createDivs(Math.pow(divReset(),2));
         })
+    let toggleDivs = document.querySelectorAll(".box");
+    chaosToggle.addEventListener("click", () =>{
+        chaos = !chaos;
+        if (chaos) {
+            chaosToggle.style.color = "hotpink";
+            } 
+        else {
+            chaosToggle.style.color = "white";
+            }
+    })
 }
 
 etchSketch()
